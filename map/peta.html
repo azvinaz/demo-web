@@ -74,7 +74,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-7.950892770513255,112.58899451194083],[-7.931120223575885,112.6296320732094]]);
+        }).fitBounds([[-7.950943405527517,112.57570370946557],[-7.931067997926983,112.64292314579434]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -226,6 +226,9 @@
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['luas'] !== null ? autolinker.link(String(feature.properties['luas']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['luas_ha'] !== null ? autolinker.link(String(feature.properties['luas_ha']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -517,6 +520,9 @@
                     <tr>\
                         <td colspan="2">' + (feature.properties['luas'] !== null ? autolinker.link(String(feature.properties['luas']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['luas_ha'] !== null ? autolinker.link(String(feature.properties['luas_ha']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -718,6 +724,9 @@
                     <tr>\
                         <td colspan="2">' + (feature.properties['Panjang'] !== null ? autolinker.link(String(feature.properties['Panjang']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['panjang_km'] !== null ? autolinker.link(String(feature.properties['panjang_km']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -781,6 +790,9 @@
                     <tr>\
                         <td colspan="2">' + (feature.properties['Panjang'] !== null ? autolinker.link(String(feature.properties['Panjang']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['panjang_km'] !== null ? autolinker.link(String(feature.properties['panjang_km']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -843,6 +855,9 @@
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Panjang'] !== null ? autolinker.link(String(feature.properties['Panjang']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['panjang_km'] !== null ? autolinker.link(String(feature.properties['panjang_km']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1184,7 +1199,7 @@
             layer: layer_pointRM_14,
             initial: false,
             hideMarkerOnCollapse: true,
-            propertyName: 'Lokasi'}));
+            propertyName: 'Nama'}));
         if (typeof url === 'undefined') {
             document.getElementsByClassName('search-button')[0].className += ' fa fa-binoculars';
         } else {
